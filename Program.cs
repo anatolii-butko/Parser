@@ -10,14 +10,19 @@ namespace parsing
         {
             public string Name { get; set; }
             public string PhoneType { get; set; }
+            public string Phone { get; set; }
             public string Address { get; set; }
             public string NetWorth { get; set; }
+            public string Street1 { get; set; }
+            public string City { get; set; }
+            public string State { get; set; }
+            public string Postal { get; set; }
         }
         static void Main(string[] args)
         {
             string checkname = Console.ReadLine();
             XmlDocument xDoc = new XmlDocument();
-            const string Filename = @"C:\Users\anatolii.butko\source\repos\parsing\contacts.xml";
+            const string Filename = @"C:\contacts.xml";
             xDoc.Load(Filename);
             List<Contact> contacts = new List<Contact>();
             XmlElement xRoot = xDoc.DocumentElement;
@@ -26,30 +31,53 @@ namespace parsing
                 foreach (XmlElement xnode in xRoot)
                 {
                     Contact contact = new Contact();
-                    if (xnode.Name == "Name")
+                    foreach (XmlElement childnode in xnode)
                     {
-                        contact.Name = xnode.InnerText;
-                    }
-
-                    if (xnode.Name == "Phone Type")
-                    {
-                        foreach (XmlNode childnode in xnode.ChildNodes)
+                        if (childnode.Name == "Name")
                         {
-                            XmlNode attr = childnode.Attributes.GetNamedItem("Phone Type");
+                            contact.Name = childnode.InnerText;
+                        }
+
+                        if (childnode.Name == "Phone")
+                        {
+                            XmlNode attr = childnode.Attributes.GetNamedItem("Type");
                             contact.PhoneType = attr?.Value;
-                            contacts.Add(contact);
+                            contact.Phone = childnode.InnerText;
+                        }
+
+                        if (childnode.Name == "Address" && childnode.HasChildNodes)
+                        {
+                            
+                            foreach (XmlNode childnode1 in childnode.ChildNodes)
+                            {
+                                if (childnode1.Name == "Street1")
+                                {
+                                    contact.Street1 = childnode1.InnerText;
+                                }
+
+                                if (childnode1.Name == "City")
+                                {
+                                    contact.City = childnode1.InnerText;
+                                }
+
+                                if (childnode1.Name == "State")
+                                {
+                                    contact.State = childnode1.InnerText;
+                                }
+
+                                if (childnode1.Name == "Postal")
+                                {
+                                    contact.Postal = childnode1.InnerText;
+                                }
+                            }
+                        }
+
+                        if (childnode.Name == "NetWorth")
+                        {
+                            contact.NetWorth = childnode.InnerText;
                         }
                     }
-
-                    if (xnode.Name == "Address")
-                    {
-                        contact.Address = xnode.InnerText;
-                    }
-
-                    if (xnode.Name == "NetWorth")
-                    {
-                        contact.NetWorth = xnode.InnerText;
-                    }
+                   
                         
                     contacts.Add(contact);
                 }
@@ -58,8 +86,11 @@ namespace parsing
                 {
                     if (checkname == c.Name)
                     {
-                        Console.WriteLine($"{c.Name} - {c.PhoneType} - {c.Address} - {c.NetWorth}");
-                    }   
+                        Console.WriteLine($"Name: {c.Name}\nPhone: {c.PhoneType} {c.Phone}\nAddress: Street1 {c.Street1}, City {c.City}, State {c.State}, Postal {c.Postal}\nNetWorth: {c.NetWorth}");
+                    }
+                        
+
+                      
                 }  
             }
         }
