@@ -90,13 +90,16 @@ namespace parsing
                     }
                     contacts.Add(contact);
                 }
+                //assigned to the variable initial value in case the search found nothing
+                string message = "Incorrect data! Please check your input and try again.";
                 foreach (Contact c in contacts)
                 {
                     if (check == c.Name)
                     {
-                        Console.WriteLine($"Name: {c.Name}\nPhone: {c.PhoneType} {c.Phone}\nAddress: Street1 {c.Street1}, City {c.City}, State {c.State}, Postal {c.Postal}\nNetWorth: {c.NetWorth}");                       
+                        message = "Name: " + c.Name + "\nPhone: " + c.PhoneType + c.Phone + "\nAddress: Street1 " + c.Street1 + ", " + "City " + c.City + ", " + "State " + c.State + ", " + "Postal " + c.Postal + "\nNetWorth: " + c.NetWorth;
                     }
                 }
+                Console.WriteLine(message);
             }
         }
     }
