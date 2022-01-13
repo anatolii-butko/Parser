@@ -54,12 +54,20 @@ namespace parsing
                         {
                             contact.Name = childnode.InnerText;
                         }
+                        List<string> phones = new List<string>();
+                        string phone;
                         if (childnode.Name == "Phone")
                         {
                             XmlNode attr = childnode.Attributes.GetNamedItem("Type");
                             contact.PhoneType = attr?.Value;
-                            contact.Phone = childnode.InnerText;
+                            contact.PhoneValue = childnode.InnerText;
+                            phones.Add(contact.PhoneType + " " + contact.PhoneValue);
+                            phone = phones.ToString();
+                            Console.WriteLine(phone);
+                            contact.Phone = phone;
+                            
                         }
+                        phones.Clear();
                         //iterate over all childnodes(childnode1) in the childnode element
                         if (childnode.Name == "Address" && childnode.HasChildNodes)
                         {
@@ -96,7 +104,7 @@ namespace parsing
                 {
                     if (check == c.Name)
                     {
-                        message = "Name: " + c.Name + "\nPhone: " + c.PhoneType + c.Phone + "\nAddress: Street1 " + c.Street1 + ", " + "City " + c.City + ", " + "State " + c.State + ", " + "Postal " + c.Postal + "\nNetWorth: " + c.NetWorth;
+                        message = "Name: " + c.Name + "\nPhone: " + c.PhoneType + " " + c.PhoneValue + c.Phone + "\nAddress: Street1 " + c.Street1 + ", " + "City " + c.City + ", " + "State " + c.State + ", " + "Postal " + c.Postal + "\nNetWorth: " + c.NetWorth;
                     }
                 }
                 Console.WriteLine(message);
