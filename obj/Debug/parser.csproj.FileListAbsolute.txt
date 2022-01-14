@@ -1,6 +1,6 @@
-C:\Users\anatolii.butko\source\repos\parser\bin\Debug\parsing.exe
-C:\Users\anatolii.butko\source\repos\parser\bin\Debug\parsing.pdb
 C:\Users\anatolii.butko\source\repos\parser\obj\Debug\parser.csproj.AssemblyReference.cache
 C:\Users\anatolii.butko\source\repos\parser\obj\Debug\parser.csproj.CoreCompileInputs.cache
-C:\Users\anatolii.butko\source\repos\parser\obj\Debug\parsing.exe
-C:\Users\anatolii.butko\source\repos\parser\obj\Debug\parsing.pdb
+C:\Users\anatolii.butko\source\repos\parser\bin\Debug\Parser.exe
+C:\Users\anatolii.butko\source\repos\parser\bin\Debug\Parser.pdb
+C:\Users\anatolii.butko\source\repos\parser\obj\Debug\Parser.exe
+C:\Users\anatolii.butko\source\repos\parser\obj\Debug\Parser.pdb

@@ -1,23 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Xml;
 
-namespace parsing
+namespace Parser
 {
     /// <summary>
-	/// The class which contains test steps .
+	/// The class which contains test steps.
 	/// </summary>
-    class Test
+    class Parser
     {
         /// <summary>
-        /// A method that performs the test case.
+        /// A method that performs the program.
         /// </summary>
-        /// <param>
-        /// Method without parametrs. Accepts console input.
-        /// </param>
-        /// <returns>
-        /// Returns(void) 
         public void Run()
         {
             Console.WriteLine("Enter the name you want to know about : ");
@@ -25,15 +19,13 @@ namespace parsing
             this.MyParser(checkname);
             
         }
+
         /// <summary>
-        /// A method that parses the specified file by creating contact class objects with properties similar to the tags in the file.
+        /// A method that parses contacts.xml file.
         /// </summary>
-        /// <param>
-        /// paramname: string check, the name you want to check.
+        /// <param name="check">
+        /// The person name you want to check.
         /// </param>
-        /// <returns>
-        /// Returns(void) Displays input-related data to the console if it is present in the file.
-        /// </returns>
         public void MyParser(string check)
         {
             string path = @"C:\contacts.xml";
@@ -43,51 +35,53 @@ namespace parsing
             XmlElement xRoot = xDoc.DocumentElement;
             if (xRoot != null && xRoot.HasChildNodes)
             {
-                //iterate over all nodes in the root element
+                // Iterate over all nodes in the root element.
                 foreach (XmlElement xnode in xRoot)
                 {
                     Contact contact = new Contact();
-                    //iterate over all childnodes in the node element
+
+                    // Iterate over all childnodes in the node element.
                     foreach (XmlElement childnode in xnode)
                     {
                         if (childnode.Name == "Name")
                         {
                             contact.Name = childnode.InnerText;
                         }
-                        List<string> phones = new List<string>();
+                        var phones = new CList<string>();
                         string phone;
                         if (childnode.Name == "Phone")
                         {
                             XmlNode attr = childnode.Attributes.GetNamedItem("Type");
                             contact.PhoneType = attr?.Value;
                             contact.PhoneValue = childnode.InnerText;
-                            phones.Add(contact.PhoneType + " " + contact.PhoneValue);
-                            phone = phones.ToString();
+                            phone = (contact.PhoneType + " " + contact.PhoneValue);
+                            phones.Add(phone);
+                            contact.Phone = phones.ToString();
                             Console.WriteLine(phone);
-                            contact.Phone = phone;
                             
+                            phones.Clear();
                         }
-                        phones.Clear();
-                        //iterate over all childnodes(childnode1) in the childnode element
+                        
+                        // Iterate over all childnodes (childnodeNext) in the childnode element.
                         if (childnode.Name == "Address" && childnode.HasChildNodes)
                         {
-                            foreach (XmlNode childnode1 in childnode.ChildNodes)
+                            foreach (XmlNode childnodeNext in childnode.ChildNodes)
                             {
-                                if (childnode1.Name == "Street1")
+                                if (childnodeNext.Name == "Street1")
                                 {
-                                    contact.Street1 = childnode1.InnerText;
+                                    contact.Street1 = childnodeNext.InnerText;
                                 }
-                                if (childnode1.Name == "City")
+                                if (childnodeNext.Name == "City")
                                 {
-                                    contact.City = childnode1.InnerText;
+                                    contact.City = childnodeNext.InnerText;
                                 }
-                                if (childnode1.Name == "State")
+                                if (childnodeNext.Name == "State")
                                 {
-                                    contact.State = childnode1.InnerText;
+                                    contact.State = childnodeNext.InnerText;
                                 }
-                                if (childnode1.Name == "Postal")
+                                if (childnodeNext.Name == "Postal")
                                 {
-                                    contact.Postal = childnode1.InnerText;
+                                    contact.Postal = childnodeNext.InnerText;
                                 }
                             }
                         }
@@ -98,13 +92,17 @@ namespace parsing
                     }
                     contacts.Add(contact);
                 }
-                //assigned to the variable initial value in case the search found nothing
+                // Assigned to the variable initial value in case the search found nothing.
                 string message = "Incorrect data! Please check your input and try again.";
                 foreach (Contact c in contacts)
                 {
                     if (check == c.Name)
                     {
-                        message = "Name: " + c.Name + "\nPhone: " + c.PhoneType + " " + c.PhoneValue + c.Phone + "\nAddress: Street1 " + c.Street1 + ", " + "City " + c.City + ", " + "State " + c.State + ", " + "Postal " + c.Postal + "\nNetWorth: " + c.NetWorth;
+                        if (c.NetWorth == "None")
+                        {
+                            c.NetWorth = "There is no salary increase.";
+                        }
+                        message = "Name: " + c.Name + "\nPhone: " + c.PhoneType + " " + c.PhoneValue + " " + c.Phone + "\nAddress: Street1 " + c.Street1 + ", " + "City " + c.City + ", " + "State " + c.State + ", " + "Postal " + c.Postal + "\nNetWorth: " + c.NetWorth;
                     }
                 }
                 Console.WriteLine(message);

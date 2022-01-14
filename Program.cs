@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Xml;
-
-namespace parsing
+﻿namespace Parser
 {
+    /// <summary>
+    /// Program driver.
+    /// </summary>
     class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// Void Main.
+        /// </summary>
+        static void Main()
         {
-            Test test = new Test();
+            Parser test = new Parser();
             test.Run();
         }
     }

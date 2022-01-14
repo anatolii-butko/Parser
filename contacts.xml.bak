@@ -33,12 +33,12 @@
 		<NetWorth>30</NetWorth>
 	</Contact>
 	<Contact>
-		<Name>Anatolii Butko</Name>
-		<Phone Type="mobile">380-937-9992</Phone>
+		<Name></Name>
+		<Phone Type="private">999-555-9999</Phone>
 		<Address>
-			<Street1>432 Main St</Street1>
-			<City>Khrystinivka</City>
-			<Postal>20001</Postal>
+			<Street1>001 Main St</Street1>
+			<City>Ternopil</City>
+			<Postal>00001</Postal>
 		</Address>
 		<NetWorth>None</NetWorth>
 	</Contact>
