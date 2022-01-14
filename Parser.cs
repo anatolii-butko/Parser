@@ -9,6 +9,7 @@ namespace Parser
 	/// </summary>
     class Parser
     {
+        #region Public Methods
         /// <summary>
         /// A method that performs the program.
         /// </summary>
@@ -17,7 +18,6 @@ namespace Parser
             Console.WriteLine("Enter the name you want to know about : ");
             string checkname = Console.ReadLine();
             this.MyParser(checkname);
-            
         }
 
         /// <summary>
@@ -44,24 +44,28 @@ namespace Parser
                     foreach (XmlElement childnode in xnode)
                     {
                         if (childnode.Name == "Name")
-                        {
-                            contact.Name = childnode.InnerText;
+                        {                            
+                            contact.Name = childnode.InnerText;                            
+                            contact.FirstName = contact.Name.Substring(0, contact.Name.IndexOf(' '));
+                            contact.LastName = contact.Name.Substring(contact.Name.IndexOf(' ') + 1, contact.Name.Length - contact.Name.IndexOf(' ') - 1);
                         }
-                        var phones = new CList<string>();
-                        string phone;
+                        contact.Phone = null;
                         if (childnode.Name == "Phone")
                         {
-                            XmlNode attr = childnode.Attributes.GetNamedItem("Type");
+                            var phones = new CList<string>();
+                            string phone;
+                            XmlNode attr = childnode.Attributes.GetNamedItem("Type");                            
                             contact.PhoneType = attr?.Value;
                             contact.PhoneValue = childnode.InnerText;
-                            phone = (contact.PhoneType + " " + contact.PhoneValue);
-                            phones.Add(phone);
-                            contact.Phone = phones.ToString();
-                            Console.WriteLine(phone);
                             
+                            contact.Phone = contact.Phone + contact.PhoneType + contact.PhoneValue;
+                            Console.WriteLine(contact.Phone);
+                            
+
+
                             phones.Clear();
                         }
-                        
+
                         // Iterate over all childnodes (childnodeNext) in the childnode element.
                         if (childnode.Name == "Address" && childnode.HasChildNodes)
                         {
@@ -83,6 +87,7 @@ namespace Parser
                                 {
                                     contact.Postal = childnodeNext.InnerText;
                                 }
+                                contact.Address = (contact.Street1 + " " + contact.City + " " + contact.State + " " + contact.Postal);
                             }
                         }
                         if (childnode.Name == "NetWorth")
@@ -96,17 +101,21 @@ namespace Parser
                 string message = "Incorrect data! Please check your input and try again.";
                 foreach (Contact c in contacts)
                 {
-                    if (check == c.Name)
+                    if (check == c.FirstName || check == c.LastName || check == c.Name)
                     {
                         if (c.NetWorth == "None")
                         {
-                            c.NetWorth = "There is no salary increase.";
+                            message = "Name: " + c.Name + "\nPhone: " + c.Phone + "\nAddress: Street1 " + c.Street1 + ", " + "City " + c.City + ", " + "State " + c.State + ", " + "Postal " + c.Postal + "\nNetWorth: " + "There is no salary increase";
                         }
-                        message = "Name: " + c.Name + "\nPhone: " + c.PhoneType + " " + c.PhoneValue + " " + c.Phone + "\nAddress: Street1 " + c.Street1 + ", " + "City " + c.City + ", " + "State " + c.State + ", " + "Postal " + c.Postal + "\nNetWorth: " + c.NetWorth;
-                    }
+                        else
+                        {
+                            message = "Name: " + c.Name + "\nPhone: " + c.Phone + "\nAddress: Street1 " + c.Street1 + ", " + "City " + c.City + ", " + "State " + c.State + ", " + "Postal " + c.Postal + "\nNetWorth: " + c.NetWorth;
+                        }
+                    }                    
                 }
                 Console.WriteLine(message);
             }
         }
+        #endregion
     }
 }

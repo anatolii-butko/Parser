@@ -13,6 +13,16 @@
         public string Name { get; set; }
 
         /// <summary>
+        /// Automatically implemented property that stores the contact first name for trivial get and set.
+        /// </summary>
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// Automatically implemented property that stores the contact last name for trivial get and set.
+        /// </summary>
+        public string LastName { get; set; }
+
+        /// <summary>
         /// Automatically implemented property that stores the contact phone for trivial get and set.
         /// </summary>
         public string Phone { get; set; }
