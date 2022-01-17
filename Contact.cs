@@ -23,20 +23,29 @@
         public string LastName { get; set; }
 
         /// <summary>
-        /// Automatically implemented property that stores the contact phone for trivial get and set.
+        /// Automatically implemented property that stores the contact`s all phones for trivial get and set.
         /// </summary>
-        public string Phone { get; set; }
+        public string Phone { get; set; }        
 
         /// <summary>
-        /// Automatically implemented property that stores the contact's phone type for trivial get and set.
+        /// Automatically implemented property that stores the contact's home phone for trivial get and set.
         /// </summary>
-        public string PhoneType { get; set; }
-
+        public string PhoneHome { get; set; }
 
         /// <summary>
-        /// Automatically implemented property that stores the contact's specific phone type number for trivial get and set.
+        /// Automatically implemented property that stores the contact's work phone for trivial get and set.
         /// </summary>
-        public string PhoneValue { get; set; }
+        public string PhoneWork { get; set; }
+
+        /// <summary>
+        /// Automatically implemented property that stores the contact's mobile phone for trivial get and set.
+        /// </summary>
+        public string PhoneMobile { get; set; }
+
+        /// <summary>
+        /// Automatically implemented property that stores the contact's private phone for trivial get and set.
+        /// </summary>
+        public string PhonePrivate { get; set; }
 
         /// <summary>
         /// Automatically implemented property that stores the contact full address for trivial get and set.

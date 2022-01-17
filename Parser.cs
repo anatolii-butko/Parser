@@ -15,7 +15,7 @@ namespace Parser
         /// </summary>
         public void Run()
         {
-            Console.WriteLine("Enter the name you want to know about : ");
+            Console.WriteLine("Enter the first name or last name of contact you want to know about : : ");
             string checkname = Console.ReadLine();
             this.MyParser(checkname);
         }
@@ -44,26 +44,43 @@ namespace Parser
                     foreach (XmlElement childnode in xnode)
                     {
                         if (childnode.Name == "Name")
-                        {                            
-                            contact.Name = childnode.InnerText;                            
+                        {
+                            contact.Name = childnode.InnerText;
                             contact.FirstName = contact.Name.Substring(0, contact.Name.IndexOf(' '));
                             contact.LastName = contact.Name.Substring(contact.Name.IndexOf(' ') + 1, contact.Name.Length - contact.Name.IndexOf(' ') - 1);
                         }
-                        contact.Phone = null;
+
                         if (childnode.Name == "Phone")
                         {
-                            var phones = new CList<string>();
-                            string phone;
-                            XmlNode attr = childnode.Attributes.GetNamedItem("Type");                            
-                            contact.PhoneType = attr?.Value;
-                            contact.PhoneValue = childnode.InnerText;
-                            
-                            contact.Phone = contact.Phone + contact.PhoneType + contact.PhoneValue;
-                            Console.WriteLine(contact.Phone);
-                            
-
-
-                            phones.Clear();
+                            XmlNode attr = childnode.Attributes.GetNamedItem("Type");
+                            if (attr.Value == "home")
+                            {                                
+                                contact.PhoneHome = childnode.InnerText;
+                                contact.Phone += ", " + attr?.Value + " " + contact.PhoneHome;
+                                contact.Phone = contact.Phone.TrimStart(',');
+                                contact.Phone = contact.Phone.TrimStart(' ');
+                            }
+                            if (attr.Value == "work")
+                            {
+                                contact.PhoneWork = childnode.InnerText;
+                                contact.Phone += ", " + attr?.Value + " " + contact.PhoneWork;
+                                contact.Phone = contact.Phone.TrimStart(',');
+                                contact.Phone = contact.Phone.TrimStart(' ');
+                            }
+                            if (attr.Value == "mobile")
+                            {
+                                contact.PhoneMobile = childnode.InnerText;
+                                contact.Phone += ", " + attr?.Value + " " + contact.PhoneMobile;
+                                contact.Phone = contact.Phone.TrimStart(',');
+                                contact.Phone = contact.Phone.TrimStart(' ');
+                            }
+                            if (attr.Value == "private")
+                            {
+                                contact.PhonePrivate = childnode.InnerText;
+                                contact.Phone += ", " + attr?.Value + " " + contact.PhonePrivate;
+                                contact.Phone = contact.Phone.TrimStart(',');
+                                contact.Phone = contact.Phone.TrimStart(' ');
+                            }
                         }
 
                         // Iterate over all childnodes (childnodeNext) in the childnode element.
@@ -74,20 +91,47 @@ namespace Parser
                                 if (childnodeNext.Name == "Street1")
                                 {
                                     contact.Street1 = childnodeNext.InnerText;
+                                    if (contact.Street1 != null)
+                                    {
+                                        contact.Street1 = childnodeNext.InnerText;
+                                        contact.Address += ", " + childnodeNext.Name + " " + contact.Street1;
+                                        contact.Address = contact.Address.TrimStart(',');
+                                        contact.Address = contact.Address.TrimStart(' ');
+                                    }
                                 }
                                 if (childnodeNext.Name == "City")
                                 {
                                     contact.City = childnodeNext.InnerText;
+                                    if (contact.City != null)
+                                    {
+                                        contact.City = childnodeNext.InnerText;
+                                        contact.Address += ", " + childnodeNext.Name + " " + contact.City;
+                                        contact.Address = contact.Address.TrimStart(',');
+                                        contact.Address = contact.Address.TrimStart(' ');
+                                    }
                                 }
                                 if (childnodeNext.Name == "State")
                                 {
                                     contact.State = childnodeNext.InnerText;
+                                    if (contact.State != null)
+                                    {
+                                        contact.State = childnodeNext.InnerText;
+                                        contact.Address += ", " + childnodeNext.Name + " " + contact.State;
+                                        contact.Address = contact.Address.TrimStart(',');
+                                        contact.Address = contact.Address.TrimStart(' ');
+                                    }
                                 }
                                 if (childnodeNext.Name == "Postal")
                                 {
                                     contact.Postal = childnodeNext.InnerText;
+                                    if (contact.Postal != null)
+                                    {
+                                        contact.Postal = childnodeNext.InnerText;
+                                        contact.Address += ", " + childnodeNext.Name + " " + contact.Postal;
+                                        contact.Address = contact.Address.TrimStart(',');
+                                        contact.Address = contact.Address.TrimStart(' ');
+                                    }
                                 }
-                                contact.Address = (contact.Street1 + " " + contact.City + " " + contact.State + " " + contact.Postal);
                             }
                         }
                         if (childnode.Name == "NetWorth")
@@ -105,17 +149,17 @@ namespace Parser
                     {
                         if (c.NetWorth == "None")
                         {
-                            message = "Name: " + c.Name + "\nPhone: " + c.Phone + "\nAddress: Street1 " + c.Street1 + ", " + "City " + c.City + ", " + "State " + c.State + ", " + "Postal " + c.Postal + "\nNetWorth: " + "There is no salary increase";
+                            message = "Name: " + c.Name + "\nPhone: " + c.Phone + "\nAddress: " + c.Address + "\nNetWorth: " + "There is no salary increase";
                         }
                         else
                         {
-                            message = "Name: " + c.Name + "\nPhone: " + c.Phone + "\nAddress: Street1 " + c.Street1 + ", " + "City " + c.City + ", " + "State " + c.State + ", " + "Postal " + c.Postal + "\nNetWorth: " + c.NetWorth;
+                            message = "Name: " + c.Name + "\nPhone: " + c.Phone + "\nAddress: " + c.Address + "\nNetWorth: " + c.NetWorth;
                         }
-                    }                    
+                    }
                 }
                 Console.WriteLine(message);
             }
         }
-        #endregion
+        #endregion        
     }
 }
