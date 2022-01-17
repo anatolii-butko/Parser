@@ -15,7 +15,7 @@ namespace Parser
         /// </summary>
         public void Run()
         {
-            Console.WriteLine("Enter the first name or last name of contact you want to know about : : ");
+            Console.WriteLine("Enter the first name or last name of contact you want to know about: ");
             string checkname = Console.ReadLine();
             this.MyParser(checkname);
         }
@@ -84,27 +84,23 @@ namespace Parser
                             {
                                 if (childnodeNext.Name == "Street1")
                                 {
-                                    contact.Street1 = childnodeNext.InnerText;                                    
-                                    contact.Address += ", " + childnodeNext.Name + " " + contact.Street1;                                        
-                                    
+                                    contact.Street1 = childnodeNext.InnerText;
+                                    contact.Address += ", " + childnodeNext.Name + " " + contact.Street1;                                                                                                             
                                 }
                                 if (childnodeNext.Name == "City")
                                 {
-                                    contact.City = childnodeNext.InnerText;                                    
-                                    contact.Address += ", " + childnodeNext.Name + " " + contact.City;                                        
-                                    
+                                    contact.City = childnodeNext.InnerText;
+                                    contact.Address += ", " + childnodeNext.Name + " " + contact.Street1;                                    
                                 }
                                 if (childnodeNext.Name == "State")
                                 {
-                                    contact.State = childnodeNext.InnerText;                                    
-                                    contact.Address += ", " + childnodeNext.Name + " " + contact.State;                                        
-                                    
+                                    contact.State = childnodeNext.InnerText;
+                                    contact.Address += ", " + childnodeNext.Name + " " + contact.Street1;                                    
                                 }
                                 if (childnodeNext.Name == "Postal")
                                 {
-                                    contact.Postal = childnodeNext.InnerText;                                    
-                                    contact.Address += ", " + childnodeNext.Name + " " + contact.Postal;                                        
-                                    
+                                    contact.Postal = childnodeNext.InnerText;
+                                    contact.Address += ", " + childnodeNext.Name + " " + contact.Street1;                                    
                                 }
                                 contact.Address = contact.Address.TrimStart(',');
                                 contact.Address = contact.Address.TrimStart(' ');
