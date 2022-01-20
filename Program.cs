@@ -1,4 +1,6 @@
-﻿namespace Parser
+﻿using System;
+
+namespace Parser
 {
     /// <summary>
     /// Program driver.
@@ -10,8 +12,10 @@
         /// </summary>
         static void Main()
         {
+            Console.WriteLine("Enter the first name or last name of contact you want to know about: ");
+            string checkName = Console.ReadLine();
             Parser test = new Parser();
-            test.Run();
+            test.MyParser(checkName);
         }
     }
 }

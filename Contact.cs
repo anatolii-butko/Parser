@@ -1,7 +1,7 @@
 ﻿namespace Parser
 {
     /// <summary>
-	/// The class which contains test steps.
+	/// The class which contains contacts data from xml file.
 	/// </summary>
     class Contact
     {

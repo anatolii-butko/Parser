@@ -5,21 +5,11 @@ using System.Xml;
 namespace Parser
 {
     /// <summary>
-	/// The class which contains test steps.
+	/// The class which contains parser.
 	/// </summary>
     class Parser
     {
         #region Public Methods
-        /// <summary>
-        /// A method that performs the program.
-        /// </summary>
-        public void Run()
-        {
-            Console.WriteLine("Enter the first name or last name of contact you want to know about: ");
-            string checkname = Console.ReadLine();
-            this.MyParser(checkname);
-        }
-
         /// <summary>
         /// A method that parses contacts.xml file.
         /// </summary>
