@@ -21,20 +21,22 @@ namespace RunProgram
         {
             Console.WriteLine("Parser\nDecoder\n\nEnter the name of the program you want to run: Parser or Decoder?");
             string input = Console.ReadLine();
-            if (input == "Decoder" || input == "D" || input == "d")
+            while (input != "Decoder" && input != "Parser")
+            {
+                Console.WriteLine("Incorrect input, select from the suggested ones. Try again.");
+                Console.WriteLine("Parser\nDecoder\n\nEnter the name of the program you want to run: Parser or Decoder?");
+                input = Console.ReadLine();
+            }
+            if (input == "Decoder")
             {
                 var obj = new Decoder();
                 obj.MyDecoder();
             }
             else
             {
-                if (input == "Parser" || input == "P" || input == "p")
-                {
-                    var obj = new Parser.Parser();
-                    obj.MyParser();
-                }
-                else Console.WriteLine("Incorrect input, select from the suggested ones. Try again.");
-            }            
+                var obj = new Parser.Parser();
+                obj.MyParser();
+            }               
         }
     }
 }
