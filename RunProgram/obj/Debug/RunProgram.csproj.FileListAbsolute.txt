@@ -1,0 +1,14 @@
+C:\Users\anatolii.butko\source\repos\Parser\RunProgram\bin\Debug\RunProgram.exe.config
+C:\Users\anatolii.butko\source\repos\Parser\RunProgram\bin\Debug\RunProgram.exe
+C:\Users\anatolii.butko\source\repos\Parser\RunProgram\bin\Debug\RunProgram.pdb
+C:\Users\anatolii.butko\source\repos\Parser\RunProgram\bin\Debug\Parser.exe
+C:\Users\anatolii.butko\source\repos\Parser\RunProgram\bin\Debug\ParserDecoder.exe
+C:\Users\anatolii.butko\source\repos\Parser\RunProgram\bin\Debug\ParserDecoder.pdb
+C:\Users\anatolii.butko\source\repos\Parser\RunProgram\bin\Debug\ParserDecoder.exe.config
+C:\Users\anatolii.butko\source\repos\Parser\RunProgram\bin\Debug\Parser.pdb
+C:\Users\anatolii.butko\source\repos\Parser\RunProgram\bin\Debug\Parser.exe.config
+C:\Users\anatolii.butko\source\repos\Parser\RunProgram\obj\Debug\RunProgram.csproj.AssemblyReference.cache
+C:\Users\anatolii.butko\source\repos\Parser\RunProgram\obj\Debug\RunProgram.csproj.CoreCompileInputs.cache
+C:\Users\anatolii.butko\source\repos\Parser\RunProgram\obj\Debug\RunProgram.csproj.CopyComplete
+C:\Users\anatolii.butko\source\repos\Parser\RunProgram\obj\Debug\RunProgram.exe
+C:\Users\anatolii.butko\source\repos\Parser\RunProgram\obj\Debug\RunProgram.pdb
