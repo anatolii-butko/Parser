@@ -1,0 +1,7 @@
+C:\Users\anatolii.butko\source\repos\Parser\ParserJSON\bin\Debug\ParserJson.exe.config
+C:\Users\anatolii.butko\source\repos\Parser\ParserJSON\bin\Debug\ParserJson.exe
+C:\Users\anatolii.butko\source\repos\Parser\ParserJSON\bin\Debug\ParserJson.pdb
+C:\Users\anatolii.butko\source\repos\Parser\ParserJSON\obj\Debug\ParserJSON.csproj.AssemblyReference.cache
+C:\Users\anatolii.butko\source\repos\Parser\ParserJSON\obj\Debug\ParserJSON.csproj.CoreCompileInputs.cache
+C:\Users\anatolii.butko\source\repos\Parser\ParserJSON\obj\Debug\ParserJson.exe
+C:\Users\anatolii.butko\source\repos\Parser\ParserJSON\obj\Debug\ParserJson.pdb

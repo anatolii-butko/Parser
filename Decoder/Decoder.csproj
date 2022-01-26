@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E39539FA-F695-4585-9C09-C5A42718D060}</ProjectGuid>
+    <ProjectGuid>{E95C1237-FA84-4F9E-A7D0-90F045A5950D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>RunProgram</RootNamespace>
-    <AssemblyName>RunProgram</AssemblyName>
+    <RootNamespace>Decoder</RootNamespace>
+    <AssemblyName>Decoder</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,25 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Decoder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Decoder\Decoder.csproj">
-      <Project>{e95c1237-fa84-4f9e-a7d0-90f045a5950d}</Project>
-      <Name>Decoder</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ParserJSON\ParserJSON.csproj">
-      <Project>{65207496-fb52-4dae-a91b-97030bb2fdc1}</Project>
-      <Name>ParserJSON</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Parser\Parser.csproj">
-      <Project>{4317d54b-8a98-4236-b69b-52e968364d65}</Project>
-      <Name>Parser</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

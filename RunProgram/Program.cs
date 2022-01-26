@@ -2,7 +2,8 @@
 
 using System;
 using Parser;
-using ParserDecoder;
+using Decoder;
+using ParserJSON;
 
 #endregion
 
@@ -19,23 +20,31 @@ namespace RunProgram
         /// </summary> 
         static void Main()
         {
-            Console.WriteLine("Parser\nDecoder\n\nEnter the name of the program you want to run: Parser or Decoder?");
+            Console.WriteLine("List of programs:\nParser\nDecoder\nParserJSON\n\nEnter the name of the program you want to run.");
             string input = Console.ReadLine();
-            while (input != "Decoder" && input != "Parser")
+            while (input != "Decoder" && input != "Parser" && input != "ParserJSON")
             {
                 Console.WriteLine("Incorrect input, select from the suggested ones. Try again.");
-                Console.WriteLine("Parser\nDecoder\n\nEnter the name of the program you want to run: Parser or Decoder?");
+                Console.WriteLine("List of programs:\nParser\nDecoder\nParserJSON\n\nEnter the name of the program you want to run.");
                 input = Console.ReadLine();
             }
             if (input == "Decoder")
             {
-                var obj = new Decoder();
+                var obj = new Decoder.Decoder();
                 obj.MyDecoder();
             }
             else
             {
-                var obj = new Parser.Parser();
-                obj.MyParser();
+                if (input == "Parser")
+                {
+                    var obj = new Parser.Parser();
+                    obj.MyParser();
+                }
+                else
+                {
+                    var obj = new ParserJSON.Parser();
+                    obj.MyParserJSON();
+                }              
             }               
         }
     }
