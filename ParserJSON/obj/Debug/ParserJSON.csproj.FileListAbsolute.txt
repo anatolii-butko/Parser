@@ -5,3 +5,6 @@ C:\Users\anatolii.butko\source\repos\Parser\ParserJSON\obj\Debug\ParserJSON.cspr
 C:\Users\anatolii.butko\source\repos\Parser\ParserJSON\obj\Debug\ParserJSON.csproj.CoreCompileInputs.cache
 C:\Users\anatolii.butko\source\repos\Parser\ParserJSON\obj\Debug\ParserJson.exe
 C:\Users\anatolii.butko\source\repos\Parser\ParserJSON\obj\Debug\ParserJson.pdb
+C:\Users\anatolii.butko\source\repos\Parser\ParserJSON\bin\Debug\Newtonsoft.Json.dll
+C:\Users\anatolii.butko\source\repos\Parser\ParserJSON\bin\Debug\Newtonsoft.Json.xml
+C:\Users\anatolii.butko\source\repos\Parser\ParserJSON\obj\Debug\ParserJSON.csproj.CopyComplete
