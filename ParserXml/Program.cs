@@ -1,4 +1,4 @@
-﻿namespace ParserJson
+﻿namespace ParserXml
 {
     /// <summary>
     /// Program driver.
@@ -11,7 +11,7 @@
         static void Main()
         {
             Parser test = new Parser();
-            test.MyParserJson();
+            test.MyParserXml();
         }
     }
 }

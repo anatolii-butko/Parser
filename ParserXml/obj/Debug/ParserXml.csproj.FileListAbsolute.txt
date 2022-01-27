@@ -1,0 +1,7 @@
+C:\Users\anatolii.butko\source\repos\Parser\ParserXml\bin\Debug\ParserXml.exe.config
+C:\Users\anatolii.butko\source\repos\Parser\ParserXml\bin\Debug\ParserXml.exe
+C:\Users\anatolii.butko\source\repos\Parser\ParserXml\bin\Debug\ParserXml.pdb
+C:\Users\anatolii.butko\source\repos\Parser\ParserXml\obj\Debug\ParserXml.csproj.AssemblyReference.cache
+C:\Users\anatolii.butko\source\repos\Parser\ParserXml\obj\Debug\ParserXml.csproj.CoreCompileInputs.cache
+C:\Users\anatolii.butko\source\repos\Parser\ParserXml\obj\Debug\ParserXml.exe
+C:\Users\anatolii.butko\source\repos\Parser\ParserXml\obj\Debug\ParserXml.pdb

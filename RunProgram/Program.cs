@@ -1,9 +1,9 @@
 ﻿#region Usings
 
 using System;
-using Parser;
-using Decoder;
-using ParserJSON;
+using ParserXml;
+using ParserDecoder;
+using ParserJson;
 
 #endregion
 
@@ -20,30 +20,30 @@ namespace RunProgram
         /// </summary> 
         static void Main()
         {
-            Console.WriteLine("List of programs:\nParser\nDecoder\nParserJSON\n\nEnter the name of the program you want to run.");
+            Console.WriteLine("List of programs:\nParserXml\nParserDecoder\nParserJson\n\nEnter the name of the program you want to run.");
             string input = Console.ReadLine();
-            while (input != "Decoder" && input != "Parser" && input != "ParserJSON")
+            while (input != "ParserDecoder" && input != "ParserXml" && input != "ParserJson")
             {
                 Console.WriteLine("Incorrect input, select from the suggested ones. Try again.");
-                Console.WriteLine("List of programs:\nParser\nDecoder\nParserJSON\n\nEnter the name of the program you want to run.");
+                Console.WriteLine("List of programs:\nParserXml\nParserDecoder\nParserJson\n\nEnter the name of the program you want to run.");
                 input = Console.ReadLine();
             }
-            if (input == "Decoder")
+            if (input == "ParserDecoder")
             {
-                var obj = new Decoder.Decoder();
+                Decoder obj = new Decoder();
                 obj.MyDecoder();
             }
             else
             {
-                if (input == "Parser")
+                if (input == "ParserXml")
                 {
-                    var obj = new Parser.Parser();
-                    obj.MyParser();
+                    ParserXml.Parser obj = new ParserXml.Parser();
+                    obj.MyParserXml();
                 }
                 else
                 {
-                    var obj = new ParserJSON.Parser();
-                    obj.MyParserJSON();
+                    ParserJson.Parser obj = new ParserJson.Parser();
+                    obj.MyParserJson();
                 }              
             }               
         }

@@ -1,7 +1,0 @@
-C:\Users\anatolii.butko\source\repos\Parser\Decoder\bin\Debug\Decoder.exe.config
-C:\Users\anatolii.butko\source\repos\Parser\Decoder\bin\Debug\Decoder.exe
-C:\Users\anatolii.butko\source\repos\Parser\Decoder\bin\Debug\Decoder.pdb
-C:\Users\anatolii.butko\source\repos\Parser\Decoder\obj\Debug\Decoder.csproj.AssemblyReference.cache
-C:\Users\anatolii.butko\source\repos\Parser\Decoder\obj\Debug\Decoder.csproj.CoreCompileInputs.cache
-C:\Users\anatolii.butko\source\repos\Parser\Decoder\obj\Debug\Decoder.exe
-C:\Users\anatolii.butko\source\repos\Parser\Decoder\obj\Debug\Decoder.pdb

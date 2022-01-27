@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ParserJson")]
+[assembly: AssemblyTitle("ParserXml")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("GlobalLogic")]
-[assembly: AssemblyProduct("ParserJson")]
+[assembly: AssemblyProduct("ParserXml")]
 [assembly: AssemblyCopyright("Copyright © GlobalLogic 2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4c040c8f-e8ff-4eb0-93a7-5bd29c1d7ee9")]
+[assembly: Guid("9721024c-0a4d-4e93-97bf-17fac851eff3")]
 
 // Version information for an assembly consists of the following four values:
 //
