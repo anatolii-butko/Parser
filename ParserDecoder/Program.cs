@@ -3,12 +3,12 @@
     /// <summary>
     /// Program driver.
     /// </summary>
-    class Program
+    public class Program
     {
         /// <summary>
         /// Void Main.
         /// </summary>        
-        static void Main()
+        protected static void Main()
         {
             Decoder test = new Decoder();
             test.MyDecoder();

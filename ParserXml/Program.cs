@@ -3,12 +3,12 @@
     /// <summary>
     /// Program driver.
     /// </summary>
-    class Program
+    public class Program
     {
         /// <summary>
         /// Void Main.
         /// </summary>
-        static void Main()
+        protected static void Main()
         {
             Parser test = new Parser();
             test.MyParserXml();

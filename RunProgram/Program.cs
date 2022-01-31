@@ -12,13 +12,13 @@ namespace RunProgram
     /// <summary>
     /// The class which contains program chooser and runer.    
     /// </summary>
-    class Program
+    public class Program
     {
 
         /// <summary>>
         /// Void Main.
         /// </summary> 
-        static void Main()
+        protected static void Main()
         {
             Console.WriteLine("List of programs:\nParserXml\nParserDecoder\nParserJson\n\nEnter the name of the program you want to run.");
             string input = Console.ReadLine();
