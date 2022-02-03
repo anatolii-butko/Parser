@@ -1,6 +1,7 @@
 C:\Users\anatolii.butko\source\repos\Parser\ParserDecoder\bin\Debug\ParserDecoder.exe.config
 C:\Users\anatolii.butko\source\repos\Parser\ParserDecoder\bin\Debug\ParserDecoder.exe
 C:\Users\anatolii.butko\source\repos\Parser\ParserDecoder\bin\Debug\ParserDecoder.pdb
+C:\Users\anatolii.butko\source\repos\Parser\ParserDecoder\obj\Debug\ParserDecoder.csproj.AssemblyReference.cache
 C:\Users\anatolii.butko\source\repos\Parser\ParserDecoder\obj\Debug\ParserDecoder.csproj.CoreCompileInputs.cache
 C:\Users\anatolii.butko\source\repos\Parser\ParserDecoder\obj\Debug\ParserDecoder.exe
 C:\Users\anatolii.butko\source\repos\Parser\ParserDecoder\obj\Debug\ParserDecoder.pdb

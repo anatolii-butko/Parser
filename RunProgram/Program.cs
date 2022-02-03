@@ -1,9 +1,7 @@
 ﻿#region Usings
 
 using System;
-using ParserXml;
 using ParserDecoder;
-using ParserJson;
 
 #endregion
 
@@ -14,7 +12,6 @@ namespace RunProgram
     /// </summary>
     public class Program
     {
-
         /// <summary>>
         /// Void Main.
         /// </summary> 

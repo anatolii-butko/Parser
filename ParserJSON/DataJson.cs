@@ -3,6 +3,8 @@
 
     #region Using
 
+    using System.Collections;
+    using System.Collections.Generic;
     using Newtonsoft.Json;
 
     #endregion
@@ -16,36 +18,36 @@
         /// InterfaceSettings.
         /// </summary>
         [JsonProperty("Interface Settings")]
-        protected string InterfaceSettings { get; set; }
+        public Dictionary<string, string> InterfaceSettings { get; set; }
 
         /// <summary>
         /// MediaInterfaceSettings.
         /// </summary>
         [JsonProperty("Media Interface Settings")]
-        protected string MediaInterfaceSettings { get; set; }
+        public Dictionary<string, Dictionary<string, string>> MediaInterfaceSettings { get; set; }
 
         /// <summary>
         /// PortSettings.
         /// </summary>
         [JsonProperty("Port Settings")]
-        protected string PortSettings { get; set; }
+        public Dictionary<string, string> PortSettings { get; set; }
 
         /// <summary>
         /// UniqueId.
         /// </summary>
         [JsonProperty("Unique ID")]
-        protected string UniqueId { get; set; }
+        public Dictionary<string, string> UniqueId { get; set; }
 
         /// <summary>
         /// MacAddress.
         /// </summary>
         [JsonProperty("MAC Address")]
-        protected string MacAddress { get; set; }
+        public Dictionary<string, string> MacAddress { get; set; }
 
         /// <summary>
         /// ComponentInterconnectId.
         /// </summary>
         [JsonProperty("Component Interconnect ID")]
-        protected string ComponentInterconnectId { get; set; }
+        public Dictionary<string, string> ComponentInterconnectId { get; set; }
     }
 }
