@@ -1,12 +1,12 @@
-﻿namespace ParserJson
+﻿namespace ParserJsonLists
 {
 
     #region Using
 
-    using System;    
+    using System;
     using System.IO;
     using Newtonsoft.Json;
-    using System.Linq;
+    using System.Linq;    
 
     #endregion
 
@@ -37,14 +37,17 @@
             string json = File.ReadAllText(path);
             do
             {
+                
                 DataJson data = JsonConvert.DeserializeObject<DataJson>(json);
+                foreach (var elem in data.DataInterfaceSettings) Console.WriteLine(elem);
+
                 //Create an array of arrays to store the data of the file.
                 string[][] RootElements = new string[7][];
                 //Create an array of root elements.
                 RootElements[0] = new string[] { "Interface Settings", "Media Interface Settings", "Port Settings", "Unique ID", "MAC Address", "Component Interconnect ID" };
                 //Splitting the dictionary of the root element InterfaceSettings into arrays of keys and values and their subsequent concatenation and writing to the array.
                 RootElements[1] = new string[data.InterfaceSettings.Count];
-                for (int i = 0; i < data.InterfaceSettings.Count; i++) RootElements[1][i] = data.InterfaceSettings.Keys.ToArray()[i] + " : " + data.InterfaceSettings.Values.ToArray()[i];
+               
                 //Splitting the dictionary of the root element MediaInterfaceSetting into arrays of keys and values and their subsequent concatenation and writing to the array.
                 RootElements[2] = new string[data.MediaInterfaceSettings.Count];
                 for (int b = 0; b < data.MediaInterfaceSettings.Count; b++)
@@ -73,21 +76,9 @@
                         output = RootElements[0][q] + " : ";
                         foreach (string elem in RootElements[q + 1]) output += "\n\t" + elem;
                         break;
-                    }                    
+                    }
                 }
                 Console.WriteLine("\n" + output);
-
-                Console.WriteLine("Enter a new TIMEOUT value. If you do not want to change, enter 20480.");
-                string newTimeout = Console.ReadLine();
-                if (data.MediaInterfaceSettings["Hardware Timeout"]["TIMEOUT"] != newTimeout) data.MediaInterfaceSettings["Hardware Timeout"]["TIMEOUT"] = newTimeout;
-                string newjson = JsonConvert.SerializeObject(data, Formatting.Indented);
-                Console.WriteLine("New json file after serialization: ");
-                Console.WriteLine(newjson);
-                Console.WriteLine("Enter the name of the new file and the full path to it where you want to save it (new .json file).\nIf the file does not exist, it will be created. If it exists, it will be overwritten.\nIf you do not enter anything, the file is saved in the root folder C: newjson.json by default.");
-                string newPathForNewJson = Console.ReadLine();
-                if (newPathForNewJson == null || newPathForNewJson == "") newPathForNewJson = @"C:\newjson.json"; //Path and name by default.                
-                File.WriteAllText(newPathForNewJson, newjson); // Create a file to write to.
-                Console.WriteLine($"New .json file created and saved by path: {newPathForNewJson}");
                 Console.WriteLine("Enter the data you want to find in the file: ");
                 check = Console.ReadLine();
             } while (output != null);

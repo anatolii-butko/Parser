@@ -1,9 +1,9 @@
-﻿namespace ParserJson
+﻿namespace ParserJsonLists
 {
 
     #region Using
     
-    using System.Collections.Generic;
+    using System.Collections.Generic;    
     using Newtonsoft.Json;
 
     #endregion
@@ -16,8 +16,17 @@
         /// <summary>
         /// InterfaceSettings.
         /// </summary>
-        [JsonProperty("Interface Settings")]
-        public Dictionary<string, string> InterfaceSettings { get; set; }
+        [JsonProperty("Interface Settings")]        
+        public List<string> InterfaceSettings { get; set; }
+
+        private List<string> temp = new List<string>();
+
+        public List<string> DataInterfaceSettings
+        {
+            get;           
+            set;
+        }
+
 
         /// <summary>
         /// MediaInterfaceSettings.

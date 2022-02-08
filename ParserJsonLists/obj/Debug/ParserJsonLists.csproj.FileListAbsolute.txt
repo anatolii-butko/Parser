@@ -1,0 +1,10 @@
+C:\Users\anatolii.butko\source\repos\Parser\ParserJsonLists\bin\Debug\ParserJsonLists.exe.config
+C:\Users\anatolii.butko\source\repos\Parser\ParserJsonLists\bin\Debug\ParserJsonLists.exe
+C:\Users\anatolii.butko\source\repos\Parser\ParserJsonLists\bin\Debug\ParserJsonLists.pdb
+C:\Users\anatolii.butko\source\repos\Parser\ParserJsonLists\bin\Debug\Newtonsoft.Json.dll
+C:\Users\anatolii.butko\source\repos\Parser\ParserJsonLists\bin\Debug\Newtonsoft.Json.xml
+C:\Users\anatolii.butko\source\repos\Parser\ParserJsonLists\obj\Debug\ParserJsonLists.csproj.CoreCompileInputs.cache
+C:\Users\anatolii.butko\source\repos\Parser\ParserJsonLists\obj\Debug\ParserJsonLists.csproj.CopyComplete
+C:\Users\anatolii.butko\source\repos\Parser\ParserJsonLists\obj\Debug\ParserJsonLists.exe
+C:\Users\anatolii.butko\source\repos\Parser\ParserJsonLists\obj\Debug\ParserJsonLists.pdb
+C:\Users\anatolii.butko\source\repos\Parser\ParserJsonLists\obj\Debug\ParserJsonLists.csproj.AssemblyReference.cache
