@@ -19,29 +19,26 @@
         #region Public Methods
 
         /// <summary>
-        /// A method that parses contacts.json file.
+        /// A method that parses JSON.json file.
         /// </summary>
         public void MyParserJson()
         {
-            Console.WriteLine("Enter full path and name of json file you want to parse: ");
+            Console.WriteLine("Enter full path and name of .json file you want to parse: ");
             string path = Console.ReadLine();
             while (!File.Exists(path))
             {
                 Console.WriteLine("File dont exist or incorect path! Please try again.");
-                Console.WriteLine("Enter full path and name of json file you want to parse: ");
+                Console.WriteLine("Enter full path and name of .json file you want to parse: ");
                 path = Console.ReadLine();
             }
-            string output = "Incorrect data! Please check your input and try again.";
-            Console.WriteLine("Enter the data you want to find in the file: ");
-            string check = Console.ReadLine();
             string json = File.ReadAllText(path);
-            do
+            while (json != null)
             {
                 DataJson data = JsonConvert.DeserializeObject<DataJson>(json);
                 // Create an array of arrays to store the data of the .json file.
                 string[][] Elements = new string[7][];
                 // Create an array of root elements.
-                Elements[0] = new string[] 
+                Elements[0] = new string[]
                 { "Interface Settings", "Media Interface Settings", "Port Settings",
                     "Unique ID", "MAC Address", "Component Interconnect ID" };
                 // Splitting the dictionary of the root element InterfaceSettings into arrays of keys and values and their subsequent concatenation and writing to the array.
@@ -71,33 +68,43 @@
                 // Splitting the dictionary of the root element ComponentInterconnectId into arrays of keys and values and their subsequent concatenation and writing to the array.
                 Elements[6] = new string[data.ComponentInterconnectId.Count];
                 for (int m = 0; m < data.ComponentInterconnectId.Count; m++) Elements[6][m] = data.ComponentInterconnectId.Keys.ToArray()[m] + " : " + data.ComponentInterconnectId.Values.ToArray()[m];
-                // Search in the array of entered data.
-                for (int q = 0; q < Elements[0].Length; q++)
-                {
-                    if (Elements[0][q] == check)
-                    {
-                        output = Elements[0][q] + " : ";
-                        foreach (string elem in Elements[q + 1]) output += "\n\t" + elem;
-                        break;
-                    }                    
-                }
-                Console.WriteLine("\n" + output);
 
-                Console.WriteLine("Enter a new TIMEOUT value. If you do not want to change, enter 20480.");
+                Console.WriteLine("Enter the data you want to find in the .json file: ");
+                string check = Console.ReadLine();
+                while (!Elements[0].Contains(check))
+                {
+                    Console.WriteLine("Data dont found or incorect! Please try again.");
+                    Console.WriteLine("Enter the data you want to find in the .json file: ");
+                    check = Console.ReadLine();
+                }
+                // Search in the array of entered data.
+                string output = Elements[0][Array.IndexOf(Elements[0], check)] + " : ";
+                foreach (string elem in Elements[Array.IndexOf(Elements[0], check) + 1]) output += "\n\t" + elem;
+                Console.WriteLine("\n" + output);
+                Console.WriteLine("You can change TIMEOUT value typing a new value. If you do not want to change, press Enter. Value by default 20480.");
                 string newTimeout = Console.ReadLine();
-                if (data.MediaInterfaceSettings["Hardware Timeout"]["TIMEOUT"] != newTimeout) data.MediaInterfaceSettings["Hardware Timeout"]["TIMEOUT"] = newTimeout;
+                if (newTimeout != null && newTimeout != "") data.MediaInterfaceSettings["Hardware Timeout"]["TIMEOUT"] = newTimeout;
                 string newjson = JsonConvert.SerializeObject(data, Formatting.Indented);
                 Console.WriteLine("New json file after serialization: ");
                 Console.WriteLine(newjson);
-                Console.WriteLine("Enter the name of the new file and the full path to it where you want to save it (new .json file).\nIf the file does not exist, it will be created. If it exists, it will be overwritten.\nIf you do not enter anything, the file is saved in the root folder C: newjson.json by default.");
-                string newPathForNewJson = Console.ReadLine();
-                if (newPathForNewJson == null || newPathForNewJson == "") newPathForNewJson = @"C:\newjson.json"; // Path and name by default.                
-                
-                File.WriteAllText(newPathForNewJson, newjson); // Create a file to write to.
-                Console.WriteLine($"New .json file created and saved by path: {newPathForNewJson}");
-                Console.WriteLine("Enter the data you want to find in the file: ");
-                check = Console.ReadLine();
-            } while (output != null);
+                Console.WriteLine("Enter the the full path to the new .json file where you want to save it.\nIf file exist it will be override. If there are no folders in this path, they will be created.\nIf you do not enter anything, the file is saved in the root folder C:\\ by default as newjson.json.");
+                string pathForNewJson = Console.ReadLine();
+                if (pathForNewJson == null || pathForNewJson == "") pathForNewJson = @"C:\\newjson.json"; // Path by default.
+                string msg;
+                if (!File.Exists(pathForNewJson))
+                {
+                    string directory = Path.GetDirectoryName(pathForNewJson);
+                    if (!Directory.Exists(directory)) Directory.CreateDirectory(directory);
+                    File.Create(pathForNewJson).Close();
+                    msg = "New .json file created";
+                }
+                else msg = "Existed .json file overrided";
+                File.WriteAllText(pathForNewJson, newjson);
+                Console.WriteLine($"{msg} by path: {pathForNewJson}");
+                Console.WriteLine("The program will run again. If you do not want, enter exit or close.\nOther options will be perceived as an agreement.");
+                string responce = Console.ReadLine();
+                if (responce == "close" || responce == "exit") break;
+            }
         }
 
         #endregion

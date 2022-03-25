@@ -23,7 +23,6 @@ C:\Users\anatolii.butko\source\repos\Parser\ParserJson\bin\Debug\System.Text.Enc
 C:\Users\anatolii.butko\source\repos\Parser\ParserJson\bin\Debug\System.Text.Json.xml
 C:\Users\anatolii.butko\source\repos\Parser\ParserJson\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\anatolii.butko\source\repos\Parser\ParserJson\bin\Debug\System.ValueTuple.xml
-C:\Users\anatolii.butko\source\repos\Parser\ParserJson\obj\Debug\ParserJson.csproj.AssemblyReference.cache
 C:\Users\anatolii.butko\source\repos\Parser\ParserJson\obj\Debug\ParserJson.csproj.CoreCompileInputs.cache
 C:\Users\anatolii.butko\source\repos\Parser\ParserJson\obj\Debug\ParserJson.csproj.CopyComplete
 C:\Users\anatolii.butko\source\repos\Parser\ParserJson\obj\Debug\ParserJson.exe
