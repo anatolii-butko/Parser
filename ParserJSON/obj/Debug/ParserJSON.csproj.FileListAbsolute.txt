@@ -27,3 +27,4 @@ C:\Users\anatolii.butko\source\repos\Parser\ParserJson\obj\Debug\ParserJson.cspr
 C:\Users\anatolii.butko\source\repos\Parser\ParserJson\obj\Debug\ParserJson.csproj.CopyComplete
 C:\Users\anatolii.butko\source\repos\Parser\ParserJson\obj\Debug\ParserJson.exe
 C:\Users\anatolii.butko\source\repos\Parser\ParserJson\obj\Debug\ParserJson.pdb
+C:\Users\anatolii.butko\source\repos\Parser\ParserJson\obj\Debug\ParserJson.csproj.AssemblyReference.cache

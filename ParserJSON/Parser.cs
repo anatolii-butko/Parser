@@ -27,8 +27,7 @@
             string path = Console.ReadLine();
             while (!File.Exists(path))
             {
-                Console.WriteLine("File dont exist or incorect path! Please try again.");
-                Console.WriteLine("Enter full path and name of .json file you want to parse: ");
+                Console.WriteLine($"File dont exist or incorect path! Please try again.\nEnter full path and name of .json file you want to parse: ");
                 path = Console.ReadLine();
             }
             string json = File.ReadAllText(path);
@@ -68,7 +67,6 @@
                 // Splitting the dictionary of the root element ComponentInterconnectId into arrays of keys and values and their subsequent concatenation and writing to the array.
                 Elements[6] = new string[data.ComponentInterconnectId.Count];
                 for (int m = 0; m < data.ComponentInterconnectId.Count; m++) Elements[6][m] = data.ComponentInterconnectId.Keys.ToArray()[m] + " : " + data.ComponentInterconnectId.Values.ToArray()[m];
-
                 Console.WriteLine("Enter the data you want to find in the .json file: ");
                 string check = Console.ReadLine();
                 while (!Elements[0].Contains(check))
@@ -81,7 +79,7 @@
                 string output = Elements[0][Array.IndexOf(Elements[0], check)] + " : ";
                 foreach (string elem in Elements[Array.IndexOf(Elements[0], check) + 1]) output += "\n\t" + elem;
                 Console.WriteLine("\n" + output);
-                Console.WriteLine("You can change TIMEOUT value typing a new value. If you do not want to change, press Enter. Value by default 20480.");
+                Console.WriteLine("You can change TIMEOUT typing a new value. If you do not want change it, press Enter. Value by default 20480.");
                 string newTimeout = Console.ReadLine();
                 if (newTimeout != null && newTimeout != "") data.MediaInterfaceSettings["Hardware Timeout"]["TIMEOUT"] = newTimeout;
                 string newjson = JsonConvert.SerializeObject(data, Formatting.Indented);
@@ -100,10 +98,10 @@
                 }
                 else msg = "Existed .json file overrided";
                 File.WriteAllText(pathForNewJson, newjson);
-                Console.WriteLine($"{msg} by path: {pathForNewJson}");
-                Console.WriteLine("The program will run again. If you do not want, enter exit or close.\nOther options will be perceived as an agreement.");
+                Console.WriteLine($"{msg} by path: {pathForNewJson} \nThe next step is to search for the data in the origin .json file again, and then generate the new .json file." +
+                    $"\nTo exit, type exit in the console. Any other input will be accepted for the agreement to continue.");
                 string responce = Console.ReadLine();
-                if (responce == "close" || responce == "exit") break;
+                if (responce == "exit" || responce == "Exit") break;
             }
         }
 
